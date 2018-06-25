@@ -1,0 +1,45 @@
+Find the list of Process running on your machine whose CPU is abouve 100 and select Name, VM, PM, Handle and ID
+
+Find the Process which Pm property is above 50000K Select , Name, PM, Vm Handle and ID, Also the values must be displayed in MB & 
+select first 10
+
+Find the Application Event Logs in Error Category Recent 15 usning external filter (Where-Object)
+
+Get the diskspace utilization report Get-WmiObject -class Win32_logicaldisk , filter out information for Floopy or DVD drive and only display
+Logical disk space report in GB
+
+######################################################################################################
+#Get the list of softwares installed on your machine, Filter the softwares which are non Microsoft only and display properties, Softwarename, Installed date and Vendor
+#Hint: Get-wmiobject Win32_Product
+
+Filter Process based on Name B* Use -like Operator
+Filter Process based on CPU 100 Use like -gt
+Filter Process based on PM 50000KB Use -gt Operator
+Filter Services based on Name B* Use like Operator
+Filter Services based on Status Stopped Use -Eq Operator
+Filter Services based on Status Running Use -Eq Operator
+Filter Services based on Starttype Automatic/Manual/Disabled Use -Eq Operator
+Filter the eventlogs based on Entry type error , Warning
+Filter the eventlogs based on Source
+Filter the eventlogs based on Event
+
+Get-Service | get-member
+Get-process | get-member
+Get-eventlog | Get-member
+
+get the list of Process on your machine, sort them on PM property in descending order, Select Name , VM , PM and CPU property only display top 10 values and show PM and VM in MB
+
+get the list of Process on your machine, sort them on VM property in descending order, Select Name , VM , PM and CPU property only display top 10 values and show PM and VM in MB
+
+get the list of Process on your machine, sort them on CPU property in descending order, Select Name , VM , PM and CPU property only display top 10 values and show PM and VM in MB
+
+get the list of Process on your machine, where CPU value is greater than 100, sort them on PM property in descending order, Select Name , VM , PM and CPU property only display top 10 values andshow PM and VM in MB
+
+get the list of Process on your machine, where PM value is greater than 50000KB sort them on PM property in descending order, Select Name , VM , PM and CPU property only display top 10 values and show PM and VM in MB
+
+Get the list of Services which are in stopped state, Display name, Status, Starttype and Machinename
+
+Get the application event logs between 21 May to 18 May only errors
+
+$before = (Get-date).adddays(-1)
+$after =(Get-date).adddays(-4)
