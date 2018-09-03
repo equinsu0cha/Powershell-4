@@ -33,6 +33,29 @@ $EXCEL.workbooks.Close()
 $EXCEL.Application.Quit()
 
 
+##Open Existing WorkBook and Update 
+$date = (Get-Date).ToString("dd-MM-yyyy hh-mm-ss")
+$EXCEL = New-Object -ComObject Excel.Application
+$EXCEL.visible = $true
+$WORKBOOK = $EXCEL.workbooks.Open("E:\test.xlsx")
+$WORKSHEET = $WORKBOOK.Worksheets.Add()
+$WORKSHEET.Cells.Item(1,1)= "Test1122334545"
+$WORKSHEET.Cells.Item(1,1).font.bold =$true
+$WORKSHEET.Cells.Item(1,1).Interior.ColorIndex = 6
+$WORKSHEET.Cells.Item(1,2)= "Test2"
+$WORKSHEET.Cells.Item(1,2).font.bold =$true
+$WORKSHEET.Cells.Item(1,2).Interior.ColorIndex = 6
+$WORKSHEET.Cells.Item(1,3)= "Test3"
+$WORKSHEET.Cells.Item(1,3).font.bold =$true
+$WORKSHEET.Cells.Item(1,3).Interior.ColorIndex = 6
+$WORKSHEET.Cells.Item(1,3) | gm
+#$COUNT = $WORKBOOK.Worksheets.Count
+$WORKSHEET.name = "$date"
+$WORKBOOK.Save()
+
+$EXCEL.workbooks.Close()
+$EXCEL.Application.Quit()
+
 #For Reading Excel Sheet content
 
 $row = 1
